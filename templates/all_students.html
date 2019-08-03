@@ -1,0 +1,54 @@
+{%extends 'header.html'%}
+{%block content%}
+<script>
+        function myFunction(id) {
+          var txt;
+          var r = confirm("Delete Student?");
+          if (r == true) {
+            window.location.href = "/delete_student/"+id;
+          } else {
+            txt = "You pressed Cancel!";
+          }
+          document.getElementById("demo").innerHTML = txt;
+        }
+</script>
+<div class = 'container'>
+        <div class="pt-3">
+                <table class = 'table table-striped'>
+                    <thead>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Parent Name</th>
+                        <th>Parent Phone Number</th>
+                        <th>Parent Email</th>
+                        <th>Address</th>
+                        <th>Birthday</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        {%for student in students%}
+                        <tr>
+                            <td>{{student['studentid']}}</td>
+                            <td>{{student['studentname']}}</td>
+                            <td>{{student['parentname']}}</td>
+                            <td>{{student['parentphone']}}</td>
+                            <td>{{student['parentemail']}}</td>
+                            <td>{{student['address']}}, {{student['town']}}</td>
+                            <td>{{student['birthday']}}</td>
+                            <td><a href = "{{url_for('edit_student',id=student['studentid'])}}" class = 'btn btn-primary'>Edit</a></td>
+                            <td><button onclick = "myFunction({{student['studentid']}})" class = 'btn btn-danger'>Delete</button></td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+</div>
+{%endblock content%}
+
+studentid
+studentname
+birthday
+parentname
+parentphone
+parentemail
+ischeckedin

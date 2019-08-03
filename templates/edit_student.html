@@ -1,0 +1,42 @@
+{%extends 'header.html'%}
+{%block content%}
+
+<div class = 'container'>
+    <div class = "pt-3">
+        <table class = 'table-bordered'>
+            <thead>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Parent Name</th>
+                <th>Parent Phone Number</th>
+                <th>Parent Email</th>
+                <th>Address</th>
+                <th>Town</th>
+                <th>Birthday</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <form method='POST'>
+                    {{form.hidden_tag()}}
+                    <td>{{student['studentid']}}</td>
+                    <div class="form-group"><td>{{form.studentName(autocomplete="off",class_="form-control",value=student['studentname'])}}</td></div>
+                    <div class="form-group"><td>{{form.parentName(autocomplete="off",class_="form-control",value=student['parentname'])}}</td></div>
+                    <div class="form-group"><td>{{form.parentPhone(autocomplete="off",class_="form-control",value=student['parentphone'])}}</td></div>
+                    <div class="form-group"><td>{{form.email(autocomplete="off",class_="form-control",value=student['parentemail'])}}</td></div>
+                    <div class="form-group"><td>{{form.address(autocomplete="off",class_="form-control",value=student['address'])}}</td></div>
+                    <div class="form-group"><td>{{form.town(autocomplete="off",class_="form-control",value=student['town'])}}</td></div>
+                    <div class="form-group"><td>{{form.birthday(autocomplete="off",class_="form-control",value=student['birthday'])}}</td></div>
+                    <td>{{form.submit(class_='btn btn-success', value = 'Change')}}</td>
+                </form>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+</div>
+
+
+{%endblock content%}

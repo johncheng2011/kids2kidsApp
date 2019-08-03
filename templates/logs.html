@@ -1,0 +1,10 @@
+{%extends 'header.html'%}
+{%block content%}
+{%for date in dates%}
+
+{%set url = date['date'].year|string +'-'+ date['date'].month|string%}
+    <a href = "{{url_for('logs_month',year_month=url)}}">{{months[date['date'].month] + " " +  date['date'].year|string}}</a>
+{%endfor%}
+{{dates}}
+
+{%endblock content%}

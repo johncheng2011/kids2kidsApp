@@ -1,0 +1,21 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = 'container'>
+    <div class = 'row'>
+    <div class="card" style="width: 90rem;">
+        <div class="card-body">
+            <h3>User: </h3>
+            <form role="form" method="post">
+            {%for student in allStudents%}
+            <input type="checkbox" name="addbox" value="{{student['studentid']}}">
+                {{student['studentname']}}
+                <br>
+            {%endfor%}
+            <button type="submit" name="submit" value="add">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{%endblock content%}

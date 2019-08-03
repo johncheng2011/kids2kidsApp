@@ -1,0 +1,49 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = 'container'>
+    
+        <h3>Check In</h3>
+    
+        
+        
+            
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" style='width: 10%'>Check In</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                
+                  </tr>
+                </thead>
+                <tbody>
+                    <form role="form" method="post">
+                    {%for student in students%}
+                    <tr>
+                    <div class = 'row'>
+                        <td>
+                        <input  type="checkbox"  name = "checkinbox" value="{{student['studentid']}}">
+                        
+                        </td>
+                        
+                        
+                        <td>{{student['studentname']}}</td>
+                        {%if student['ischeckedin']%}
+                        <td style = 'color:green'>Checked In</td>
+                        {%else%}
+                        <td style = 'color:red'>Checked Out</td>
+                        {%endif%}
+                       
+                    </div>
+                    </tr>
+                    {%endfor%}
+                  
+                </tbody>
+              </table>
+            
+           
+        <button type="submit" name="submit" value="checkin" class = "btn btn-success btn-lg btn-block">Check In</button>
+
+        </form>
+        
+{%endblock content%}

@@ -1,0 +1,56 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = "container">
+{%if students%}
+<h2>Students</h2>
+<table class = 'table table-striped'>
+        <thead>
+            <th style='width: 15%'>Check Out</th>
+            <th>Student Name</th>
+            <th>Status</th>
+           
+            
+        </thead>
+        <tbody>
+            <form role="form" method="post">
+            {%for student in students%}
+            <tr>
+            {%if student['ischeckedin']%}
+            <td>
+                <div class = 'pl-3'>
+                <input  style = 'width:30px; height:30px;' type="checkbox"  name = "checkoutbox" value="{{student['studentid']}}">       
+                </div> 
+            </td>
+            <td>{{student['studentname']}}</td>
+            <td style = 'color:green'>Checked In</td>
+            {%else%}
+            <td></td>
+            <td>{{student['studentname']}}</td>
+            <td style = 'color:red'>Checked Out</td>
+            {%endif%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <INPUT TYPE="text" NAME="userbox" style="display: none" value = '{{username}}'>
+    <button type="submit" name="submit" value="checkout" class = "btn btn-danger btn-lg btn-block"><h1>Check Out</h1></button>
+    </form>
+
+</div>
+
+{%else%}
+<div class = 'd-flex justify-content-center'>
+    <h1>All Students Checked Out</h1>
+    
+    </div>
+    <a href = '{{url_for("test")}}'><button class = "btn btn-primary btn-lg btn-block"><h1>Back</h1></button></a>
+    </div>
+
+
+
+
+
+{%endif%}
+
+
+{%endblock content%}

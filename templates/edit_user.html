@@ -1,0 +1,40 @@
+{%extends 'header.html'%}
+{%block content%}
+
+<div class = 'container'>
+    <div class = "pt-3">
+        <table class = 'table-bordered'>
+            <thead>
+                <th>UserID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Town</th>
+                <th>User Code</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <form method='POST'>
+                    {{form.hidden_tag()}}
+                    <td>{{user['userid']}}</td>
+                    <td>{{form.username(readonly = True,autocomplete="off",class_="form-control",value=user['username'])}}</td>
+                    <div class="form-group"><td>{{form.name(autocomplete="off",class_="form-control",value=user['name'])}}</td></div>
+                    <div class="form-group"><td>{{form.phone(autocomplete="off",class_="form-control",value=user['phonenumber'])}}</td></div>
+                    <div class="form-group"><td>{{form.address(autocomplete="off",class_="form-control",value=user['address'])}}</td></div>
+                    <div class="form-group"><td>{{form.town(autocomplete="off",class_="form-control",value=user['town'])}}</td></div>
+                    <div class="form-group"><td>{{form.code(autocomplete="off",class_="form-control",value=user['usercode'])}}</td></div>
+                    <td>{{form.submit(class_='btn btn-success', value = 'Change')}}</td>
+                </form>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+</div>
+
+
+{%endblock content%}

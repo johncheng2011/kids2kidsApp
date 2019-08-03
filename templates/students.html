@@ -1,0 +1,30 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = "container">
+<h2>All Students</h2>
+<table class = 'table table-striped'>
+        <thead>
+            <th>Student Name</th>
+            <th>Status</th>
+            
+        </thead>
+        <tbody>
+            {%for student in students%}
+            <tr>
+            <td>{{student['studentname']}}</td>
+            {%if student['ischeckedin']%}
+            <td style = 'color:green'>Checked In</td>
+            {%else%}
+            <td style = 'color:red'>Checked Out</td>
+            {%endif%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a href = "{{url_for('parents_checkout')}}"><button type="button" class="btn btn-primary btn-lg btn-block"><h1>Check Out</h1></button></a>
+    <br>
+    <a href = "{{url_for('parents_checkin')}}"><button type="button" class="btn btn-primary btn-lg btn-block"><h3>Check In</h3></button></a>
+</div>
+</div>
+
+{%endblock content%}

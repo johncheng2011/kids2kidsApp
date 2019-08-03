@@ -1,0 +1,139 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = 'container'>
+    
+        
+            <div class="row justify-content-center pt-3">
+                <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Register</div>
+                            <div class="card-body">
+                                <form name="my-form" method="POST">
+                                    {{form.hidden_tag()}}
+                                    <div class="form-group row">
+                                        <label for="student_name" class="col-md-4 col-form-label text-md-right">Student Name</label>
+                                        <div class="col-md-6">
+                                                {{form.studentName(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="parent_name" class="col-md-4 col-form-label text-md-right">Parent Name</label>
+                                        <div class="col-md-6">
+                                            {{form.parentName(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="birthday" class="col-md-4 col-form-label text-md-right">Birthday</label>
+                                        <div class="col-md-6">
+                                            {{form.birthday(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="parent_phone" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                        <div class="col-md-6">
+                                            {{form.parentPhone(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="parent_email" class="col-md-4 col-form-label text-md-right">Parent Email</label>
+                                        <div class="col-md-6">
+                                                {{form.email(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
+                                        <div class="col-md-6">
+                                                {{form.address(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="town" class="col-md-4 col-form-label text-md-right">Town/City</label>
+                                        <div class="col-md-6">
+                                            {{form.town(autocomplete="off",class_="form-control")}}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 offset-md-4">
+                                        {%if form.errors%}
+                                        {{form.errors}}
+                                        {%endif%}
+
+                                    </div>
+                                        <div class="col-md-6 offset-md-4">
+                                                {{form.submit}}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            
+    <div class="pt-4">
+    <table class = 'table table-striped'>
+        <thead>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Parent Name</th>
+            <th>Parent Phone Number</th>
+            <th>Parent Email</th>
+            <th>Address</th>
+            <th>Birthday</th>
+        </thead>
+        <tbody>
+            {%for student in students%}
+            <tr>
+                <td>{{student['studentid']}}</td>
+                <td>{{student['studentname']}}</td>
+                <td>{{student['parentname']}}</td>
+                <td>{{student['parentphone']}}</td>
+                <td>{{student['parentemail']}}</td>
+                <td>{{student['address']}}, {{students['town']}}</td>
+                <td>{{student['birthday']}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
+   
+   
+
+
+</div>
+    
+
+<form method = 'post'>
+    
+ 
+  
+   
+   
+    
+
+  
+
+Student Name:    
+Parent Name:   
+birthday : 
+parentPhone : 
+parent Email : 
+
+
+
+</form>
+
+<!-- 
+#     studentName = StringField('studentName', validators=[InputRequired()])
+# parentName = StringField('parentName', validators=[InputRequired()])
+# age = IntegerField('age',validators=[InputRequired()])
+# parentPhone = IntegerField('parentPhone',validators=[InputRequired()])
+# email = StringField('email',validators=[InputRequired(),Email()]) -->
+{% for student in students %}
+    {{student}}
+{%endfor%}
+{%endblock content%}

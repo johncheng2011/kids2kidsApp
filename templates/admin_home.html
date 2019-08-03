@@ -1,0 +1,25 @@
+{%extends 'header.html'%}
+{%block content%}
+<div class = 'container'>
+<div class="card">
+<div class="card-body">
+    <a href = "{{url_for('checkin')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>Check In</h1></button></a>
+    <br>
+    <a href = "{{url_for('checkout')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>Check Out</h1></button></a>
+    <br>
+    <a href = "{{url_for('pickup_list')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>Pick Up List</h1></button></a>
+    <br>
+    <a href = "{{url_for('add_students')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>Add Student</h1></button></a>
+    <br>
+    <a href = "{{url_for('add_user')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>Add User</h1></button></a>
+    <br>
+    <a href = "{{url_for('all_users')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>All Users</h1></button></a>
+    <br>
+    <a href = "{{url_for('all_students')}}"><button type="button" class="btn btn-info btn-lg btn-block"><h1>All Students</h1></button></a>
+   
+   
+</div>
+</div>
+</div>
+
+{%endblock content%}

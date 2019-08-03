@@ -1,0 +1,67 @@
+
+{%extends 'header.html'%}
+{%block content%}
+<div class = 'container'>
+    <a href = "{{url_for('add_students')}}">add students</a>
+    <a href = "{{url_for('add_user')}}">add user</a>
+    <div class = 'row'>
+        <h3>Check In</h3>
+        <table class = 'table table-striped'>
+            <thead>
+                <th style='width:10%'>check In</th>
+                <th>Student Name</th>
+                <th>Status</th>
+                
+            </thead>
+            <tbody>
+                <form role="form" method="post">
+                {%for student in notCheckedIn%}
+                <tr>
+                <td><input type="checkbox"  name="checkinbox" value="{{student['studentid']}}"></td>
+                <td>{{student['studentname']}}</td>
+                {%if student['ischeckedin']%}
+                <td style = 'color:green'>Checked In</td>
+                {%else%}
+                <td style = 'color:red'>Checked Out</td>
+                {%endif%}
+                </tr>
+                {%endfor%}
+                {%for student in checkedIn%}
+                <tr>
+                <td></td>
+                <td>{{student['studentname']}}</td>
+                {%if student['ischeckedin']%}
+                <td style = 'color:green'>Checked In</td>
+                {%else%}
+                <td style = 'color:red'>Checked Out</td>
+                {%endif%}
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <button type="submit" name="submit" value="checkin" class = "btn btn-success btn-lg btn-block">Check In</button>
+        </form>
+    </div>
+
+</div>
+{%endblock content%}
+<div class ='row'>
+        <h3>Roster</h3>
+        <table class = 'table table-striped'>
+            <thead>
+                <th>check in</th>
+                <th>student name</th>
+            </thead>
+            <tbody>
+                <form role="form" method="post">
+                {%for student in roster%}
+                <tr>
+                <td><input type="checkbox" name="checkinbox" value="{{student['studentid']}}"></td>
+                <td>{{student}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+            </table>
+            <button type="submit" name="submit" value="checkin">Submit</button>
+        </form>
+    </div>

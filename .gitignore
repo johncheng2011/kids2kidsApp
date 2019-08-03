@@ -1,0 +1,5 @@
+.vscode
+env
+database.py
+__pycache__
+test.py
