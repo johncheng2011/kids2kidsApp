@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-app.config['SECRET_KEY'] = 'SFHkST5dGAhG5Dv6Gc4f'
+app.config['SECRET_KEY'] = database.secretkey
 
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
